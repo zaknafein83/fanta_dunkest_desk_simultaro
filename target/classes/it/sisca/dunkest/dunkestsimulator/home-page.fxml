@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.sisca.dunkest.dunkestsimulator.HelloController">
+  <children>
+      <HBox>
+         <children>
+            <VBox maxWidth="200.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Inserisci i tuoi Crediti">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="ownCredit" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="95" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Filtro sui crediti">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="filterCreditLabel" alignment="CENTER" contentDisplay="CENTER">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Slider fx:id="slider" blockIncrement="0.1" majorTickUnit="0.1" max="28.0" min="4.0" minorTickCount="0" showTickLabels="false" showTickMarks="false" value="28.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Slider>
+                  <VBox>
+                     <children>
+                        <CheckBox fx:id="checkCenter" contentDisplay="BOTTOM" mnemonicParsing="false" selected="true" text="Center">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkForward" mnemonicParsing="false" selected="true" text="Forward">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkGuard" mnemonicParsing="false" selected="true" text="Guard">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkCoach" mnemonicParsing="false" selected="true" text="Coach">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <HBox alignment="CENTER" />
+                     </children>
+                  </VBox>
+                  <BorderPane>
+                     <center>
+                        <ComboBox fx:id="teamFilter" prefWidth="150.0" />
+                     </center>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <top>
+                        <Label text="Filtra per squadra" BorderPane.alignment="CENTER" />
+                     </top>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <BorderPane focusTraversable="true" HBox.hgrow="ALWAYS">
+               <center>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <AnchorPane fx:id="center0BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label fx:id="center0" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <Label fx:id="center0CR" layoutX="60.0" layoutY="90.0" />
+                                    <VBox>
+                                       <children>
+                                          <Button fx:id="center0Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="center1BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="2">
+                                 <children>
+                                    <Label fx:id="center1" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <Label fx:id="center1CR" layoutX="60.0" layoutY="90.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="center1Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="forward0BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="forward0" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <Label fx:id="forward0CR" layoutX="60.0" layoutY="90.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="forward0Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="forward1BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="forward1" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <Label fx:id="forward1CR" layoutX="60.0" layoutY="90.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="forward1Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="forward2BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="forward2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="forward2Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="forward2CR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="forward3BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="forward3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="forward3Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="forward3CR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="guard0BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="guard0" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox>
+                                       <children>
+                                          <Button fx:id="guard0Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="guard0CR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="guard1BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="guard1" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="guard1Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="guard1CR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="guard2BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="guard2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="guard2Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="guard2CR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="guard3BP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="guard3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="guard3Remove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="guard3CR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="coachBP" maxHeight="150.0" maxWidth="130.0" minHeight="150.0" minWidth="130.0" onMouseEntered="#showRemove" onMouseExited="#hideRemove" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label fx:id="coach" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="50.0" minWidth="110.0" />
+                                    <VBox>
+                                       <children>
+                                          <Button fx:id="coachRemove" mnemonicParsing="false" text="-" visible="false" />
+                                       </children>
+                                    </VBox>
+                                    <Label fx:id="coachCR" layoutX="60.0" layoutY="90.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                     </center>
+                  </BorderPane>
+               </center>
+               <bottom>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <center>
+                        <BorderPane fx:id="bottomPane">
+                           <center>
+                              <Label fx:id="labelCrediti" />
+                           </center>
+                        </BorderPane>
+                     </center>
+                  </BorderPane>
+               </bottom>
+               <right>
+                  <BorderPane BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+            <VBox alignment="CENTER" maxWidth="200.0" spacing="5.0">
+               <children>
+                  <Button fx:id="listoneDunkest" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" onAction="#caricaListoneDunkest" text="Carica Listone Dunkest">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <TextField fx:id="nameFilter" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <ListView fx:id="playerList">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </ListView>
+                  <VBox>
+                     <children>
+                        <Label fx:id="selectedPlayerName" />
+                        <Label fx:id="selectedPlayerRole" />
+                        <Label fx:id="selectedPlayerTeam" />
+                        <Label fx:id="selectedPlayerPrice" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+  </children>
+</VBox>
